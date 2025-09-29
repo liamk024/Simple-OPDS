@@ -1,42 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2005/Atom">
-  <updated>2025-09-29T18:16:10</updated>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Simple-OPDS</title>
+  <updated>2025-09-29T19:53:10</updated>
   <id>root</id>
-  <title>Kavita</title>
-  <icon>/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/favicon</icon>
   <author>
-    <name>Kavita</name>
-    <uri>https://www.kavitareader.com</uri>
+    <name>Liam Kelly</name>
   </author>
-  <link rel="self" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/"/>
-  <link rel="start" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
-  <link rel="search" type="application/opensearchdescription+xml" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/search"/>
+
   <entry>
-    <updated>2025-09-29T18:16:10</updated>
-    <id>readingList</id>
     <title>Reading Lists</title>
-    <content type="text">Browse by Reading Lists</content>
-    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/reading-list"/>
-  </entry>
-  <entry>
     <updated>2025-09-29T18:16:10</updated>
-    <id>wantToRead</id>
-    <title>Want to Read</title>
-    <content type="text">Browse Want to Read</content>
-    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/want-to-read"/>
-  </entry>
-  <entry>
-    <updated>2025-09-29T18:16:10</updated>
-    <id>allLibraries</id>
-    <title>All Libraries</title>
-    <content type="text">Browse by Libraries</content>
-    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/libraries"/>
-  </entry>
-  <entry>
-    <updated>2025-09-29T18:16:10</updated>
-    <id>allCollections</id>
-    <title>All Collections</title>
-    <content type="text">Browse by Collections</content>
-    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/collections"/>
+    <id>urn:uuid:1225c695-cfb8-4ebb-aaaa-80da344efa6a</id>
+    <content type="text">Main Library</content>
+    <link href="http://example.org/"/>
   </entry>
 </feed>
