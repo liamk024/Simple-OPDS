@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2005/Atom">
+  <updated>2025-09-30T16:45:39</updated>
+  <id>library-Novels</id>
+  <title>Novels</title>
+  <icon>/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/favicon</icon>
+  <author>
+    <name>Kavita</name>
+    <uri>https://www.kavitareader.com</uri>
+  </author>
+  <totalResults xmlns="http://a9.com/-/spec/opensearch/1.1/">109</totalResults>
+  <itemsPerPage xmlns="http://a9.com/-/spec/opensearch/1.1/">20</itemsPerPage>
+  <startIndex xmlns="http://a9.com/-/spec/opensearch/1.1/">1</startIndex>
+  <link rel="self" type="application/atom+xml;profile=opds-catalog;kind=acquisition" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/libraries/1?pageNumber=1"/>
+  <link rel="start" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+  <link rel="search" type="application/opensearchdescription+xml" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/search"/>
+  <link rel="next" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/libraries/1?pageNumber=2"/>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>54</id>
+    <title>A Cave King’s Road to Paradise: Climbing to the Top with My Almighty Mining Skills!</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/54"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=54&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=54&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Callum May</name>
+      <uri>http://opds-spec.org/author/109</uri>
+    </author>
+    <author>
+      <name>Catherine Catlin</name>
+      <uri>http://opds-spec.org/author/110</uri>
+    </author>
+    <author>
+      <name>Hajime Naehara</name>
+      <uri>http://opds-spec.org/author/107</uri>
+    </author>
+    <author>
+      <name>Hatori Kyoka</name>
+      <uri>http://opds-spec.org/author/108</uri>
+    </author>
+    <author>
+      <name>Zihan Gao</name>
+      <uri>http://opds-spec.org/author/106</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>142</id>
+    <title>A Late-Start Tamer’s Laid-Back Life</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/142"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=142&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=142&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>A.M. Cola</name>
+      <uri>http://opds-spec.org/author/272</uri>
+    </author>
+    <author>
+      <name>Diana Taylor</name>
+      <uri>http://opds-spec.org/author/271</uri>
+    </author>
+    <author>
+      <name>Irene Nakano</name>
+      <uri>http://opds-spec.org/author/269</uri>
+    </author>
+    <author>
+      <name>Nardack</name>
+      <uri>http://opds-spec.org/author/270</uri>
+    </author>
+    <author>
+      <name>Yuko C. Shimomoto</name>
+      <uri>http://opds-spec.org/author/268</uri>
+    </author>
+    <author>
+      <name>Yuu Tanaka</name>
+      <uri>http://opds-spec.org/author/246</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>173</id>
+    <title>A Returner’s Magic Should Be Special</title>
+    <summary>Format: Epub     Summary: “Now that I’m back, I won’t allow my loved ones to die again!”
+
+The Shadow Labyrinth – the most catastrophic existence humanity has faced in history.
+
+Desir Arman is one of the six remaining survivors of mankind.
+
+The six attempted to clear the final level of the labyrinth but ultimately failed, and the world came to an end.
+
+However – when Desir thought he would meet his demise, what is revealed before him is the world… thirteen years ago?!
+
+Desir is returned to the past, back to the time when he enrolled at the nation’s finest magic academy – Havrion. He is reunited with his precious friends, and is prepared to change the past to save the world and his loved ones…!
+
+Three years remaining before the emergence of the Shadow World!
+
+Change the past and gather powerful comrades to save mankind!</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/173"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=173&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=173&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Yook So-Nan</name>
+      <uri>http://opds-spec.org/author/294</uri>
+    </author>
+    <category term="" label="Action"/>
+    <category term="" label="Adventure"/>
+    <category term="" label="Comedy"/>
+    <category term="" label="Drama"/>
+    <category term="" label="Fantasy"/>
+    <category term="" label="Romance"/>
+    <category term="" label="School life"/>
+    <category term="" label="Shounen"/>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>36</id>
+    <title>A Wild Last Boss Appeared!</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/36"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=36&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=36&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Firehead</name>
+      <uri>http://opds-spec.org/author/81</uri>
+    </author>
+    <author>
+      <name>Kathleen Townsend</name>
+      <uri>http://opds-spec.org/author/65</uri>
+    </author>
+    <author>
+      <name>Kevin Chen</name>
+      <uri>http://opds-spec.org/author/17</uri>
+    </author>
+    <author>
+      <name>YahaKo</name>
+      <uri>http://opds-spec.org/author/80</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>118</id>
+    <title>After-School Dungeon Diver: Level Grinding in Another World</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/118"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=118&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=118&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Hiroya Watanabe</name>
+      <uri>http://opds-spec.org/author/214</uri>
+    </author>
+    <author>
+      <name>Hitsuji Gamei</name>
+      <uri>http://opds-spec.org/author/230</uri>
+    </author>
+    <author>
+      <name>Karei</name>
+      <uri>http://opds-spec.org/author/231</uri>
+    </author>
+    <author>
+      <name>N@TSUKI</name>
+      <uri>http://opds-spec.org/author/232</uri>
+    </author>
+    <author>
+      <name>Shoji Izumiya</name>
+      <uri>http://opds-spec.org/author/233</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>162</id>
+    <title>Am I Actually the Strongest?</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/162"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=162&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=162&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Ai Takahashi</name>
+      <uri>http://opds-spec.org/author/185</uri>
+    </author>
+    <author>
+      <name>Sai Sumimori</name>
+      <uri>http://opds-spec.org/author/184</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>156</id>
+    <title>American- Native Empire Anthology</title>
+    <summary>Format: Epub     Summary: Anthology containing:
+
+         American- Native Empire 01 by ---
+
+         American- Native Empire 02 by ---
+
+         American- Native Empire 03 by ---
+
+         American- Native Empire 04 by ---</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/156"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=156&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=156&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>---</name>
+      <uri>http://opds-spec.org/author/48</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>68</id>
+    <title>An Introvert’s Hookup Hiccups: This Gyaru Is Head Over Heels for Me!</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/68"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=68&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=68&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Kagachisaku</name>
+      <uri>http://opds-spec.org/author/140</uri>
+    </author>
+    <author>
+      <name>Satoko Kakihara</name>
+      <uri>http://opds-spec.org/author/138</uri>
+    </author>
+    <author>
+      <name>Stephanie Buck</name>
+      <uri>http://opds-spec.org/author/41</uri>
+    </author>
+    <author>
+      <name>Yuishi</name>
+      <uri>http://opds-spec.org/author/139</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>56</id>
+    <title>Arifureta Zero</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/56"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=56&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=56&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>DxS</name>
+      <uri>http://opds-spec.org/author/114</uri>
+    </author>
+    <author>
+      <name>Ningen</name>
+      <uri>http://opds-spec.org/author/111</uri>
+    </author>
+    <author>
+      <name>Ryo Shirakome</name>
+      <uri>http://opds-spec.org/author/112</uri>
+    </author>
+    <author>
+      <name>Takaya-ki</name>
+      <uri>http://opds-spec.org/author/113</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>82</id>
+    <title>Arifureta: From Commonplace to World's Strongest</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/82"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=82&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=82&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>DxS</name>
+      <uri>http://opds-spec.org/author/114</uri>
+    </author>
+    <author>
+      <name>Ningen</name>
+      <uri>http://opds-spec.org/author/111</uri>
+    </author>
+    <author>
+      <name>Ryo Shirakome</name>
+      <uri>http://opds-spec.org/author/112</uri>
+    </author>
+    <author>
+      <name>Takaya-ki</name>
+      <uri>http://opds-spec.org/author/113</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>136</id>
+    <title>Arifureta: From Commonplace to World’s Strongest: Short Stories</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/136"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=136&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=136&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>DxS</name>
+      <uri>http://opds-spec.org/author/114</uri>
+    </author>
+    <author>
+      <name>Ningen</name>
+      <uri>http://opds-spec.org/author/111</uri>
+    </author>
+    <author>
+      <name>Ryo Shirakome</name>
+      <uri>http://opds-spec.org/author/112</uri>
+    </author>
+    <author>
+      <name>Takaya-ki</name>
+      <uri>http://opds-spec.org/author/113</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>161</id>
+    <title>As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/161"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=161&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=161&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>jimmy</name>
+      <uri>http://opds-spec.org/author/229</uri>
+    </author>
+    <author>
+      <name>Miraijin A</name>
+      <uri>http://opds-spec.org/author/228</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>150</id>
+    <title>Ascendance of a Bookworm</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/150"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=150&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=150&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Aimee Zink</name>
+      <uri>http://opds-spec.org/author/31</uri>
+    </author>
+    <author>
+      <name>Kieran Redgewell</name>
+      <uri>http://opds-spec.org/author/28</uri>
+    </author>
+    <author>
+      <name>Miya Kazuki</name>
+      <uri>http://opds-spec.org/author/24</uri>
+    </author>
+    <author>
+      <name>quof</name>
+      <uri>http://opds-spec.org/author/23</uri>
+    </author>
+    <author>
+      <name>You Shiina</name>
+      <uri>http://opds-spec.org/author/25</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>9</id>
+    <title>Ascendance of a Bookworm: Official Fanbook</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/9"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=9&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=9&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Kieran Redgewell</name>
+      <uri>http://opds-spec.org/author/28</uri>
+    </author>
+    <author>
+      <name>Miya Kazuki</name>
+      <uri>http://opds-spec.org/author/24</uri>
+    </author>
+    <author>
+      <name>Nicole Roderick</name>
+      <uri>http://opds-spec.org/author/29</uri>
+    </author>
+    <author>
+      <name>quof</name>
+      <uri>http://opds-spec.org/author/23</uri>
+    </author>
+    <author>
+      <name>Ryo Namino</name>
+      <uri>http://opds-spec.org/author/27</uri>
+    </author>
+    <author>
+      <name>Suzuka</name>
+      <uri>http://opds-spec.org/author/26</uri>
+    </author>
+    <author>
+      <name>You Shiina</name>
+      <uri>http://opds-spec.org/author/25</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>135</id>
+    <title>Ascendance of a Bookworm: Royal Academy Stories - First Year</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/135"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=135&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=135&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Kieran Redgewell</name>
+      <uri>http://opds-spec.org/author/28</uri>
+    </author>
+    <author>
+      <name>Miya Kazuki</name>
+      <uri>http://opds-spec.org/author/24</uri>
+    </author>
+    <author>
+      <name>quof</name>
+      <uri>http://opds-spec.org/author/23</uri>
+    </author>
+    <author>
+      <name>You Shiina</name>
+      <uri>http://opds-spec.org/author/25</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>105</id>
+    <title>Ascendance of a Bookworm: Short Story Collection</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/105"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=105&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=105&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Kieran Redgewell</name>
+      <uri>http://opds-spec.org/author/28</uri>
+    </author>
+    <author>
+      <name>Miya Kazuki</name>
+      <uri>http://opds-spec.org/author/24</uri>
+    </author>
+    <author>
+      <name>quof</name>
+      <uri>http://opds-spec.org/author/23</uri>
+    </author>
+    <author>
+      <name>You Shiina</name>
+      <uri>http://opds-spec.org/author/25</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>65</id>
+    <title>Bluesteel Blasphemer</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/65"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=65&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=65&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Ichirou Sakaki</name>
+      <uri>http://opds-spec.org/author/133</uri>
+    </author>
+    <author>
+      <name>James Rushton</name>
+      <uri>http://opds-spec.org/author/131</uri>
+    </author>
+    <author>
+      <name>Kevin Steinbach</name>
+      <uri>http://opds-spec.org/author/132</uri>
+    </author>
+    <author>
+      <name>Sasha McGlynn</name>
+      <uri>http://opds-spec.org/author/135</uri>
+    </author>
+    <author>
+      <name>Tera Akai</name>
+      <uri>http://opds-spec.org/author/134</uri>
+    </author>
+    <category term="" label="Fantasy"/>
+    <category term="" label="Fiction"/>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>25</id>
+    <title>Bottom-Tier Character Tomozaki</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/25"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=25&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=25&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Fly</name>
+      <uri>http://opds-spec.org/author/55</uri>
+    </author>
+    <author>
+      <name>Yuki Yaku</name>
+      <uri>http://opds-spec.org/author/54</uri>
+    </author>
+    <author>
+      <name>Yuki Yaku and Fly</name>
+      <uri>http://opds-spec.org/author/53</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>145</id>
+    <title>Chillin’ in Another World with Level 2 Super Cheat Powers</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/145"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=145&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=145&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Katagiri</name>
+      <uri>http://opds-spec.org/author/276</uri>
+    </author>
+    <author>
+      <name>Meteora</name>
+      <uri>http://opds-spec.org/author/274</uri>
+    </author>
+    <author>
+      <name>Miya Kinojo</name>
+      <uri>http://opds-spec.org/author/275</uri>
+    </author>
+    <author>
+      <name>Samantha J. Moore</name>
+      <uri>http://opds-spec.org/author/144</uri>
+    </author>
+  </entry>
+  <entry>
+    <updated>2025-09-30T16:45:39</updated>
+    <id>34</id>
+    <title>Combatants Will Be Dispatched!</title>
+    <summary>Format: Epub</summary>
+    <link rel="subsection" type="application/atom+xml;profile=opds-catalog;kind=navigation" href="/api/opds/d42dbfcc-9214-49c3-819d-b0afbb305c04/series/34"/>
+    <link rel="http://opds-spec.org/image" type="image/jpeg" href="/api/image/series-cover?seriesId=34&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <link rel="http://opds-spec.org/image/thumbnail" type="image/jpeg" href="/api/image/series-cover?seriesId=34&amp;apiKey=d42dbfcc-9214-49c3-819d-b0afbb305c04"/>
+    <author>
+      <name>Natsume Akatsuki and Kakao Lanthanum</name>
+      <uri>http://opds-spec.org/author/79</uri>
+    </author>
+  </entry>
+</feed>
