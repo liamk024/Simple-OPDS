@@ -19,13 +19,15 @@ def get_link(rel, href, link_type, other=''):
 
     return ' '.join(out)
 
+
+
 # Main class for OPDSFeed
 class OPDSFeed():
-    def __init__(self):
+    def __init__(self, feed_id, feed_title):
         now = datetime.datetime.now(datetime.timezone.utc)
-        self.root = {
-            'id' : 'root',
-            'title' : 'OPDS Catalogue Root',
+        self.properties = {
+            'id' : feed_id,
+            'title' : feed_title,
             'updated' : now.strftime('%d:%m:%YT%H:%M:%S')
         }
 
@@ -52,3 +54,5 @@ class OPDSFeed():
         output.append('</feed>')
 
         return '\n'.join(output)
+
+

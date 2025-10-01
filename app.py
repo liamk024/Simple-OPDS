@@ -5,6 +5,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
-    feed = str(opdsfeedgen.OPDSFeed())
+    feed = str(opdsfeedgen.OPDSFeed('root', 'OPDS Catalogue Root'))
 
     return Response(feed, mimetype='application/atom+xml')
