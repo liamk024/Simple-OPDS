@@ -1,10 +1,10 @@
 from flask import Flask, Response
-import atomgen
+import opdsfeedgen
 
 app = Flask(__name__)
 
 @app.route('/')
 def root():
-    feed = str(atomgen.OPDSFeed())
+    feed = str(opdsfeedgen.OPDSFeed())
 
     return Response(feed, mimetype='application/atom+xml')
