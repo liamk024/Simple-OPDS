@@ -35,17 +35,15 @@ class OPDSFeed():
         self.entries = []
     
     # For adding OPDS Entries
-    def add_nav_entry(self, entry_id, entry_title, entry_href):
+    def add_nav_entry(self, entry_id, entry_title):
         out = []
 
-        out.append('<entry>')
         out.append('    ' + f'<id>{entry_id}</id>')
         out.append('    ' + f'<title>{entry_title}</title>')
         out.append('    ' + f'<updated>{self.properties["updated"]}</updated>')
-        out.append('    ' + get_link('subsection', entry_href, 'application/atom+xml;profile=opds-catalog;kind=navigation'))
-        out.append('</entry>')
+        out.append('    ' + get_link('subsection', f'/{entry_id}', 'application/atom+xml;profile=opds-catalog;kind=navigation'))
 
-        self.entries.append('\n'.join(out))
+        self.entries.append(out)
 
 
     def __str__(self):
@@ -65,8 +63,11 @@ class OPDSFeed():
             output.append('    ' + link)
 
         for entry in self.entries:
-            output.append('    ' + entry)
-        
+            output.append('    ' + '<entry>')
+            for line in entry:
+                output.append('    ' + line)
+            output.append('    ' + '</entry>')
+
         output.append('</feed>')
 
         return '\n'.join(output)
