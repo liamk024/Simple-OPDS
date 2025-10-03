@@ -2,9 +2,9 @@ from flask import Flask, Response
 import opdsfeedgen, uuid
 
 main_id = uuid.uuid4()
-feeds = {main_id.urn:opdsfeedgen.OPDSFeed(main_id.urn, 'Main Library', 'acquisition', '/main', '/')}
+feeds = {main_id:opdsfeedgen.OPDSFeed(main_id.urn, 'Main Library', False)}
 
-root_feed = opdsfeedgen.OPDSFeed('root', 'OPDS Catalogue Root', 'navigation', '/', '/')
+root_feed = opdsfeedgen.OPDSFeed(uuid.uuid4().urn, 'OPDS Catalogue Root')
 root_feed.add_nav_entry(main_id.urn, 'Main Library')
 
 app = Flask(__name__)

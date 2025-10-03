@@ -1,4 +1,4 @@
-import datetime
+import datetime, uuid
 
 # Generate atom:link element and return as string
 def get_link(rel, href, link_type):
@@ -16,7 +16,7 @@ def get_link(rel, href, link_type):
 # Main atom feed class, to use as a parent for opds classes
 class OPDSFeed():
     # Initialise basic data for OPDS Feeds
-    def __init__(self, feed_id, feed_title, feed_type, path, root_path):
+    def __init__(self, feed_id, feed_title, is_root=True, feed_type='navigation'):
         now = datetime.datetime.now(datetime.timezone.utc)
         self.properties = {
             'id' : feed_id,
@@ -27,10 +27,14 @@ class OPDSFeed():
         if not (feed_type == 'navigation' or feed_type == 'acquisition'):
             ValueError("Invalid feed_type")
 
-        self.links = [
-            get_link('self', path, f'application/atom+xml;profile=opds-catalog;kind={feed_type}'), 
-            get_link('start', root_path, 'application/atom+xml;profile=opds-catalog;kind=navigation')
-        ]
+        # Generates the atom:link elements at the top of the feed
+        self.links = []
+ 
+        if is_root: path = '/' + str(uuid.UUID(self.properties['id']))
+        else: path = '/'
+
+        self.links.append(get_link('self', path, f'application/atom+xml;profile=opds-catalog;kind={feed_type}'))
+        self.links.append(get_link('start', '/', 'application/atom+xml;profile=opds-catalog;kind=navigation'))
 
         self.entries = []
     
@@ -45,7 +49,7 @@ class OPDSFeed():
 
         self.entries.append(out)
 
-
+    # Properly return document as string to be sent over web
     def __str__(self):
         output = []
 
@@ -55,9 +59,6 @@ class OPDSFeed():
         for property in self.properties:
             output.append(f'    <{property}>{self.properties[property]}</{property}>')
         pass
-        
-        # output.append(get_link('self', '/', 'navigation'))
-        # output.append(get_link('start', '/', 'navigation'))
 
         for link in self.links:
             output.append('    ' + link)
