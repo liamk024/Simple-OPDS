@@ -1,0 +1,21 @@
+# Default configuration for Simple OPDS
+
+# Title for the root of the OPDS library
+# Default: 'Simple OPDS'
+title = 'Simple OPDS'
+
+# Starting path for the OPDS library
+# Subdomain that OPDS will be served from
+# Default: '/'
+base_path = '/'
+
+# Config for serving partial OPDS feeds, i.e. splitting the feed into multiple pages when it reaches a certain length 
+[partial]
+# Default: true
+enabled = true
+# Default: 50
+page_size = 50
+
+# Whether a full OPDS feed should be served to facilitate crawling and aggregation.
+# Default: false
+complete = false
