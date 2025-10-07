@@ -4,7 +4,6 @@
 # Default: 'Simple OPDS'
 title = 'Simple OPDS'
 
-# Starting path for the OPDS library
 # Subdomain that OPDS will be served from
 # Default: '/'
 base_path = '/'
