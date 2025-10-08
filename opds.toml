@@ -8,6 +8,10 @@ title = 'Simple OPDS'
 # Default: '/'
 base_path = '/'
 
+# Folder that contains content to be served
+# Default: './content/'
+content_path = './content/'
+
 # Config for serving partial OPDS feeds, i.e. splitting the feed into multiple pages when it reaches a certain length 
 [partial]
 # Default: true
