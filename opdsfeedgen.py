@@ -1,4 +1,4 @@
-import datetime, os, uuid
+import datetime, uuid
 from tomllib import load
 
 config = load(open('opds.toml', 'rb'))
@@ -13,8 +13,8 @@ def get_link(rel, href, link_type):
 
     return link
 
-# Main OPDS feed class
-class OPDSFeed():
+# Main OPDS catalog class
+class OPDSCatalog():
     def __init__(self):
         # Apply config
         self.base_path = config['base_path']
@@ -41,7 +41,7 @@ class OPDSFeed():
     def add_acquisition_entry(self, entry_title, entry_timestamp, parent_path='/'):
         unique_id = uuid.uuid4() # TODO: Make UUID generate based off of combination of file timestamp and name
         entry_id = unique_id.urn
-        entry_path = parent_path + unique_id
+        entry_path = parent_path + str(unique_id)
         self.contents['navigation'][parent_path]['entries'].append(entry_path)
         self.contents['acquisition'][entry_path] = {'title' : entry_title, 'id' : entry_id, 'updated': entry_timestamp, 'entries' : []}
 
@@ -54,11 +54,7 @@ class OPDSFeed():
 
         page_definition = None
         # Handle for root page request        
-        if path == '/':
-            output.append('<id>root</id>')
-            output.append(f'<title>{self.title}</title>')
-            output.append(f'<updated>{self.updated}</updated>')
-        
+        if path == '/':         
             page_definition = self.contents['navigation']['/']
 
         # Handle for page other than root
@@ -70,23 +66,27 @@ class OPDSFeed():
             else:
                 return None
 
-            output.append(f'<id>{page_definition['id']}</id>')
-            output.append(f'<title>{page_definition['title']}</title>')
-            output.append(f'<updated>{page_definition['updated']}</updated>')
+        output.append(f'<id>{page_definition["id"]}</id>')
+        output.append(f'<title>{page_definition["title"]}</title>')
+        output.append(f'<updated>{page_definition["updated"]}</updated>')
         
         # TODO: Everything below this needs to be rewritten
-        for property in self.properties:
-            output.append(f'    <{property}>{self.properties[property]}</{property}>')
-        pass
-
         for link in self.links:
-            output.append('    ' + link)
+            output.append(link)
 
-        for entry in self.entries:
-            output.append('    ' + '<entry>')
+        for entry in page_definition['entries'].keys(): 
+            entry_definition = None
+            if entry in self.contents['navigation']:
+                entry_definition = self.contents['navigation'][entry]
+            elif path in self.contents['acquisition']:
+                entry_definition = self.contents['acquisition'][path]
+            else:
+                return None
+
+            output.append('<entry>')
             for line in entry:
                 output.append('    ' + line)
-            output.append('    ' + '</entry>')
+            output.append('</entry>')
 
         output.append('</feed>')
 
