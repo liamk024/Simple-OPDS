@@ -28,12 +28,12 @@ class OPDSCatalog():
         self.links.append(get_link('start', self.base_path, 'application/atom+xml;profile=opds-catalog;kind=navigation'))
 
         # Setup dictionary to store navigation and acquisition feeds and declare root
-        self.contents = {'navigation' : [{'title' : self.title, 'id' : 'root', 'updated': self.updated, 'entries' : []}], 'acquisition' : []}
+        self.contents = {'navigation' : {'/' : {'title' : self.title, 'id' : 'root', 'updated': self.updated, 'entries' : []}}, 'acquisition' : []}
     
     # For adding OPDS navigation feeds and entries to those feeds
     def add_nav_entry(self, entry_title, entry_timestamp, parent_path='/'):
-        entry_id = ''.join([c for c in entry_title.lower() if ord(c) >= 97 and ord(c) <= 122])
-        entry_path = parent_path + entry_id
+        entry_id = ''.join([c for c in entry_title.lower() if c.isalnum()])
+        entry_path = parent_path.rstrip('/') + '/' + entry_id
         self.contents['navigation'][parent_path]['entries'].append(entry_path)
         self.contents['navigation'][entry_path] = {'title' : entry_title, 'id' : entry_id, 'updated': entry_timestamp, 'entries' : []}
 
@@ -66,15 +66,15 @@ class OPDSCatalog():
             else:
                 return None
 
-        output.append(f'<id>{page_definition["id"]}</id>')
-        output.append(f'<title>{page_definition["title"]}</title>')
-        output.append(f'<updated>{page_definition["updated"]}</updated>')
+        output.append('    ' + f'<id>{page_definition["id"]}</id>')
+        output.append('    ' + f'<title>{page_definition["title"]}</title>')
+        output.append('    ' + f'<updated>{page_definition["updated"]}</updated>')
         
         # TODO: Everything below this needs to be rewritten
         for link in self.links:
-            output.append(link)
+            output.append('    ' + link)
 
-        for entry in page_definition['entries'].keys(): 
+        for entry in page_definition['entries']: 
             entry_definition = None
             if entry in self.contents['navigation']:
                 entry_definition = self.contents['navigation'][entry]
@@ -83,10 +83,16 @@ class OPDSCatalog():
             else:
                 return None
 
-            output.append('<entry>')
-            for line in entry:
-                output.append('    ' + line)
-            output.append('</entry>')
+            output.append('    ' + '<entry>')
+            if 'link' in entry_definition.keys():
+                output.append('        ' + get_link('http://opds-spec.org/acquisition', '/' + entry_definition['id'], 'application/epub+zip')) # TODO: don't assume file is epub because that's stupid
+            else:
+                output.append('        ' + get_link('subsection', '/' + path, 'application/atom+xml;profile=opds-catalog;kind=navigation'))
+            for line in entry_definition.keys():
+                if not line == 'link' and not line == 'entries':
+                    output.append('        ' + f'<{line}>{entry_definition[line]}</{line}>')
+
+            output.append('    ' + '</entry>')
 
         output.append('</feed>')
 
