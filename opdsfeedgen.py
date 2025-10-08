@@ -85,9 +85,10 @@ class OPDSCatalog():
 
             output.append('    ' + '<entry>')
             if 'link' in entry_definition.keys():
-                output.append('        ' + get_link('http://opds-spec.org/acquisition', '/' + entry_definition['id'], 'application/epub+zip')) # TODO: don't assume file is epub because that's stupid
+                output.append('        ' + get_link('http://opds-spec.org/acquisition', entry, 'application/epub+zip')) # TODO: rewrite to actually serve file and also to not assume file is epub
             else:
-                output.append('        ' + get_link('subsection', '/' + path, 'application/atom+xml;profile=opds-catalog;kind=navigation'))
+                output.append('        ' + get_link('subsection', entry, 'application/atom+xml;profile=opds-catalog;kind=navigation'))
+                print(path)
             for line in entry_definition.keys():
                 if not line == 'link' and not line == 'entries':
                     output.append('        ' + f'<{line}>{entry_definition[line]}</{line}>')
