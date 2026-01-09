@@ -8,12 +8,13 @@ library_root = './actual_content'
 
 class OPDSCatalog():
     # Declare lookup table for files and folders
-    # def __init__(self):
-    #     self.lookup_table = {'files': {}, 'folders': {}}
-    #     self.crawl(library_root)
+    def __init__(self):
+        self.lookup_table = {}
+        self.crawl(library_root)
     
     # Rebuilds lookup table from library root
     def crawl(self, path):
+        path = Path(path)
         for item in path.iterdir():
             if item.is_dir():
                 # Checks if a folder contains any actual files
@@ -21,10 +22,16 @@ class OPDSCatalog():
                 if has_files:
                     # Generate series ID if it contains files and register in lookup table
                     series_id = self.get_book_id(item.name, item.stat().st_mtime)
+                    
+                    # Get list of files to store in lookup table
+                    files = [str(file) for file in item.iterdir() if file.is_file()]
+                    files.sort()
+
                     series_properties = {
                         'name': item.name,
                         'modified': item.stat().st_mtime,
-                        'path': str(item)
+                        'path': str(item),
+                        'files': files
                     }
 
                     # Register in lookup table
@@ -37,20 +44,18 @@ class OPDSCatalog():
     def link(self, rel, link_type, href):
         return f'<link rel="{rel}" type="{link_type}" href="{href}"/>'
     
-    # Generate URN UUID for series to use in URL and as ID
+    # Generate  UUID for series to use in URL and as ID
     def get_book_id(self, name, timestamp):
         u = uuid.uuid5(uuid.NAMESPACE_DNS, f'{name}:{timestamp}')
-        return u.urn
+        return str(u)
     
     # Returns entries for 
     def get_children(self, path, href):
         output = []
         timestamp = datetime.now(timezone.utc)
 
-        # Returns list of folder and files in path
+        # Returns list of folder in path
         folders = [p for p in Path(path).iterdir() if p.is_dir()]
-        files = [p for p in Path(path).iterdir() if p.is_file()]
-        files.sort(key=lambda p: p.name)
 
         for f in folders:
             folder_name = f.name
@@ -76,9 +81,6 @@ class OPDSCatalog():
                 child_href = href.rstrip('/') + '/' + folder_id
             output.append(self.link('subsection', 'application/atom+xml;profile=opds-catalog;kind=navigation', child_href))
             output.append('</entry>')
-        
-        for f in files:
-            pass
 
         return output
     
@@ -117,6 +119,7 @@ class OPDSCatalog():
         timestamp = datetime.now(timezone.utc)
 
         # Resolve actual file path
+        href = href.rstrip('/')
         path = self.resolve_path_from_url(href)
 
         # Document metadata
@@ -124,18 +127,20 @@ class OPDSCatalog():
         output.append('<feed xmlns="http://www.w3.org/2005/Atom">')
         
         output.append(f'<updated>{timestamp.strftime("%Y-%m-%dT%H:%M:%S")}</updated>')
-        output.append(f'<id>{href}</id>')
 
-        # Parse URL to get folder name
-        if href.rstrip('/') == '/content':
+        # Parse URL to get folder id and name 
+        if href == '/content':
+            page_id = 'root'
             page_name = 'Root'
         else:
+            page_id = href
             page_name = str(path).split('/')[-1]
+        output.append(f'<id>{page_id}</id>')
         output.append(f'<title>{page_name}</title>')
 
         # Add links for self and root path
         output.append(self.link('self', 'application/atom+xml;profile=opds-catalog;kind=navigation', href))
-        output.append(self.link('start', 'application/atom+xml;profile=opds-catalog;kind=navigation', '/content'))
+        output.append(self.link('start', 'application/atom+xml;profile=opds-catalog;kind=navigation', '/'))
 
         # Add children for current path
         output.extend(self.get_children(path, href))
@@ -157,16 +162,47 @@ class OPDSCatalog():
         output.append('<feed xmlns="http://www.w3.org/2005/Atom">')
         
         output.append(f'<updated>{timestamp.strftime("%Y-%m-%dT%H:%M:%S")}</updated>')
-        output.append(f'<id>{href.split('/')[-1].split(':')[-1]}</id>')
+        output.append(f'<id>{href.split('/')[-1]}</id>')
 
         output.append(f'<title>{series_properties['name']}</title>')
 
         # Add links for self and root path
         output.append(self.link('self', 'application/atom+xml;profile=opds-catalog;kind=navigation', href))
-        output.append(self.link('start', 'application/atom+xml;profile=opds-catalog;kind=navigation', '/content'))
+        output.append(self.link('start', 'application/atom+xml;profile=opds-catalog;kind=navigation', '/'))
 
-        # Add children for current path
-        output.extend(self.get_children(path, href))
+        # Add folders as entries
+        for i in range(len(series_properties['files'])):
+            file = Path(series_properties['files'][i])
+
+            # Get human readable last modified timestamp
+            last_modified = file.stat().st_mtime
+            dt = datetime.fromtimestamp(last_modified)
+            formatted_time = dt.strftime("%Y-%m-%dT%H:%M:%S")
+
+            # Get human readable file size
+            size_bytes = file.stat().st_size
+            for unit in ['B', 'KB', 'MB', 'GB', 'TB']:
+                if size_bytes < 1024:
+                    file_size = f"{size_bytes:.2f} {unit}"
+                    break  # stop here once the correct unit is found
+                size_bytes /= 1024
+            else:
+                # if extremely large file
+                file_size = f"{size_bytes:.2f} PB"
+
+            # Generate entry for each file in the 
+            output.append('<entry>')
+            output.append(f'<updated>{formatted_time}</updated>')
+            output.append(f'<id>{i}</id>')
+            output.append(f'<title>{file.name}</title>')
+            output.append(f'<summary>File Type: epub+zip - {file_size}</summary>')
+            output.append(f'<extent>{file_size}</extent>')
+            output.append(f'<format>Epub</format>')
+            output.append(f'<content type="text">application/epub+zip</content>')
+
+            child_href = href + f'/{i}'
+            output.append(f'<link rel="http://opds-spec.org/acquisition" type="application/epub+zip" href="{child_href}"/>')
+            output.append('</entry>')
 
         output.append('</feed>')
 
