@@ -13,28 +13,33 @@ class OPDSCatalog():
     #     self.crawl(library_root)
     
     # Rebuilds lookup table from library root
-    # def crawl(self):
-    #     for item in path.iterdir():
-    #         if item.is_dir():
-    #             handle_folder(item)
-    #             crawl(item)
-    #         elif item.is_file():
-    #             handle_file(item)
+    def crawl(self, path):
+        for item in path.iterdir():
+            if item.is_dir():
+                # Checks if a folder contains any actual files
+                has_files = any(child.is_file() for child in item.iterdir())
+                if has_files:
+                    # Generate series ID if it contains files and register in lookup table
+                    series_id = self.get_book_id(item.name, item.stat().st_mtime)
+                    series_properties = {
+                        'name': item.name,
+                        'modified': item.stat().st_mtime,
+                        'path': str(item)
+                    }
+
+                    # Register in lookup table
+                    self.lookup_table[series_id] = series_properties
+                else:
+                    # Iterate on child folders
+                    self.crawl(item)
 
     # Generate atom:link element and return as string
     def link(self, rel, link_type, href):
         return f'<link rel="{rel}" type="{link_type}" href="{href}"/>'
     
-    # Generate URN UUID from book files to use in URL and as ID
+    # Generate URN UUID for series to use in URL and as ID
     def get_book_id(self, name, timestamp):
-        if timestamp.tzinfo is None:
-            timestamp = timestamp.replace(tzinfo=timezone.utc)
-        else:
-            timestamp = timestamp.astimezone(timezone.utc)
-
-        unix_time = int(timestamp.timestamp())
-
-        u = uuid.uuid5(uuid.NAMESPACE_DNS, f'{name}:{unix_time}')
+        u = uuid.uuid5(uuid.NAMESPACE_DNS, f'{name}:{timestamp}')
         return u.urn
     
     # Returns entries for 
@@ -45,10 +50,17 @@ class OPDSCatalog():
         # Returns list of folder and files in path
         folders = [p for p in Path(path).iterdir() if p.is_dir()]
         files = [p for p in Path(path).iterdir() if p.is_file()]
+        files.sort(key=lambda p: p.name)
 
         for f in folders:
             folder_name = f.name
-            folder_id = f.name.lower().replace(' ', '+')
+            
+            # Set folder_id based on whether or not it contains files
+            has_files = any(child.is_file() for child in f.iterdir())
+            if has_files:
+                folder_id = self.get_book_id(f.name, f.stat().st_mtime)
+            else:
+                folder_id = f.name.lower().replace(' ', '+')
 
             # Generate entry for each folder in the 
             output.append('<entry>')
@@ -58,7 +70,10 @@ class OPDSCatalog():
             output.append(f'<content type="text">Browse {folder_name}</content>')
 
             # Get new href for child
-            child_href = href.rstrip('/') + '/' + folder_id
+            if has_files:
+                child_href = '/series/' + folder_id
+            else:
+                child_href = href.rstrip('/') + '/' + folder_id
             output.append(self.link('subsection', 'application/atom+xml;profile=opds-catalog;kind=navigation', child_href))
             output.append('</entry>')
         
@@ -91,6 +106,10 @@ class OPDSCatalog():
             current_path = current_path / folder_lookup_table[slug]
 
         return current_path
+    
+    # Searches lookup table for series ID
+    def resolve_path_from_id(self, series_id):
+        pass
 
     # Return Navigation page for requested path
     def get_nav_page(self, href):
@@ -125,96 +144,30 @@ class OPDSCatalog():
 
         return '\n'.join(output)
 
+    # Handle series pages differently to navigation pages
+    def get_series_page(self, href):
+        output = []
+        timestamp = datetime.now(timezone.utc)
+
+        # Get properties from series ID
+        series_properties = self.lookup_table[href.split('/')[-1]]
+
+        # Document metadata
+        output.append('<?xml version="1.0" encoding="UTF-8"?>')
+        output.append('<feed xmlns="http://www.w3.org/2005/Atom">')
         
+        output.append(f'<updated>{timestamp.strftime("%Y-%m-%dT%H:%M:%S")}</updated>')
+        output.append(f'<id>{href.split('/')[-1].split(':')[-1]}</id>')
 
-# # Main OPDS catalog class
-# def __init__(self):
-#     # Apply config
-#     self.base_path = config['base_path']
-#     self.title = config['title']
-#     self.updated = datetime.datetime.now(datetime.timezone.utc).strftime('%d:%m:%YT%H:%M:%S') # TODO: Change to use timestamp for last time files were changed
+        output.append(f'<title>{series_properties['name']}</title>')
 
-#     # Generates the atom:link elements at the top of the feed
-#     self.links = []
+        # Add links for self and root path
+        output.append(self.link('self', 'application/atom+xml;profile=opds-catalog;kind=navigation', href))
+        output.append(self.link('start', 'application/atom+xml;profile=opds-catalog;kind=navigation', '/content'))
 
-#     self.links.append(get_link('self', self.base_path, 'application/atom+xml;profile=opds-catalog;kind=navigation'))
-#     self.links.append(get_link('start', self.base_path, 'application/atom+xml;profile=opds-catalog;kind=navigation'))
+        # Add children for current path
+        output.extend(self.get_children(path, href))
 
-#     # Setup dictionary to store navigation and acquisition feeds and declare root
-#     self.contents = {'navigation' : {'/' : {'title' : self.title, 'id' : 'root', 'updated': self.updated, 'entries' : []}}, 'acquisition' : []}
+        output.append('</feed>')
 
-# # For adding OPDS navigation feeds and entries to those feeds
-# def add_nav_entry(self, entry_title, entry_timestamp, parent_path='/'):
-#     entry_id = ''.join([c for c in entry_title.lower() if c.isalnum()])
-#     entry_path = parent_path.rstrip('/') + '/' + entry_id
-#     self.contents['navigation'][parent_path]['entries'].append(entry_path)
-#     self.contents['navigation'][entry_path] = {'title' : entry_title, 'id' : entry_id, 'updated': entry_timestamp, 'entries' : []}
-
-# # For adding OPDS acquisition feeds
-# def add_acquisition_entry(self, entry_title, entry_timestamp, parent_path='/'):
-#     unique_id = uuid.uuid4() # TODO: Make UUID generate based off of combination of file timestamp and name
-#     entry_id = unique_id.urn
-#     entry_path = parent_path + str(unique_id)
-#     self.contents['navigation'][parent_path]['entries'].append(entry_path)
-#     self.contents['acquisition'][entry_path] = {'title' : entry_title, 'id' : entry_id, 'updated': entry_timestamp, 'entries' : []}
-
-# # Returns a complete atom document for the requested path
-# def return_page(self, path):
-#     output = []
-
-    
-
-#     page_definition = None
-#     # Handle for root page request        
-#     if path == '/':         
-#         page_definition = self.contents['navigation']['/']
-
-#     # Handle for page other than root
-#     else:
-#         if path in self.contents['navigation']:
-#             page_definition = self.contents['navigation'][path]
-#         elif path in self.contents['acquisition']:
-#             page_definition = self.contents['acquisition'][path]
-#         else:
-#             return None
-
-#     output.append('    ' + f'<id>{page_definition["id"]}</id>')
-#     output.append('    ' + f'<title>{page_definition["title"]}</title>')
-#     output.append('    ' + f'<updated>{page_definition["updated"]}</updated>')
-    
-#     # TODO: Everything below this needs to be rewritten
-#     for link in self.links:
-#         output.append('    ' + link)
-
-#     for entry in page_definition['entries']: 
-#         entry_definition = None
-#         if entry in self.contents['navigation']:
-#             entry_definition = self.contents['navigation'][entry]
-#         elif path in self.contents['acquisition']:
-#             entry_definition = self.contents['acquisition'][path]
-#         else:
-#             return None
-
-#         output.append('    ' + '<entry>')
-#         if 'link' in entry_definition.keys():
-#             output.append('        ' + get_link('http://opds-spec.org/acquisition', entry, 'application/epub+zip')) # TODO: rewrite to actually serve file and also to not assume file is epub
-#         else:
-#             output.append('        ' + get_link('subsection', entry, 'application/atom+xml;profile=opds-catalog;kind=navigation'))
-#             print(path)
-#         for line in entry_definition.keys():
-#             if not line == 'link' and not line == 'entries':
-#                 output.append('        ' + f'<{line}>{entry_definition[line]}</{line}>')
-
-#         output.append('    ' + '</entry>')
-
-#     output.append('</feed>')
-
-#     return '\n'.join(output)
-#     # out = []
-
-#     # out.append('    ' + f'<id>{entry_id}</id>')
-#     # out.append('    ' + f'<title>{entry_title}</title>')
-#     # out.append('    ' + f'<updated>{self.properties["updated"]}</updated>')
-#     # out.append('    ' + get_link('subsection', f'/{entry_id}', 'application/atom+xml;profile=opds-catalog;kind=navigation'))
-
-#     # self.entries.append(out)
+        return '\n'.join(output)
