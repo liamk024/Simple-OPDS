@@ -4,7 +4,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 config = load(open('opds.toml', 'rb'))
-library_root = './actual_content'
+library_root = './content'
 
 class OPDSCatalog():
     # Declare lookup table for files and folders

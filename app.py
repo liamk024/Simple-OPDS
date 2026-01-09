@@ -1,4 +1,5 @@
 from flask import Flask, Response, send_file
+from waitress import serve
 from tomllib import load
 import opdsfeedgen, datetime, os, uuid
 
@@ -58,8 +59,9 @@ def show_series(path):
         return send_file(file_path, mimetype='application/epub+zip')
 
 if __name__ == '__main__':
-    app.run(
+    serve(
+        app,
         host='0.0.0.0',
         port=5000,
-        debug=True
+        threads=4
     )

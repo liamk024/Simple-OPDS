@@ -1,0 +1,7 @@
+services:
+  simple-opds:
+    build: .
+    container_name: simple-opds
+    env_file: .env
+    ports:
+      - 5000:5000
