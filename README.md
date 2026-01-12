@@ -1,6 +1,6 @@
 # Simple OPDS
 
-Simple OPDS is a lightweight implementation of the [OPDS 1.2](https://specs.opds.io/opds-1.2) spec.
+Simple OPDS is a lightweight python implementation of the [OPDS 1.2](https://specs.opds.io/opds-1.2) spec.
 
 ## Features
 
@@ -13,8 +13,10 @@ Simple OPDS is a lightweight implementation of the [OPDS 1.2](https://specs.opds
 
  - More customisation using environment variables.
  - Parsing file metadata for thumbnails and descriptions.
- - Support for more filetypes
-
+ - Support for more filetypes.
+ - Searching, and webcrawling support.
+ - Pages for large libraries.
+ - Authentication (login or token-based).
 
 ## Options
 
