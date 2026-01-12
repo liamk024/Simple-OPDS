@@ -1,3 +1,9 @@
+# Simple OPDS: Lightweight implementation of the OPDS spec in python
+# Copyright (C) 2026  Liam Kelly
+#
+# Full Copyright disclaimer in app.py
+
+
 import uuid
 from pathlib import Path
 from datetime import datetime, timezone

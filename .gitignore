@@ -1,6 +1,6 @@
 .venv/
 __pycache__/
 test.py
-actual_content/
-content/
+actual_content/*
+content/*
 .env

@@ -22,3 +22,4 @@ Options can be set using environment variables. They can either be loaded direct
 `.env` file, or as environment options passed through to a docker container.
 
 - LIBRARY_PATH: Designates the folder that contains all content to be made available by the OPDS server. (Default: './content')
+- PORT: Which port the server should listen on. (Default: 5000)
