@@ -1,3 +1,4 @@
+# Simple OPDS: Lightweight implementation of the OPDS spec in python
 # Copyright (C) 2026  Liam Kelly
 #
 # This program is free software: you can redistribute it and/or modify
