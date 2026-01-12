@@ -1,12 +1,21 @@
+# Inbuilt python dependencies
+import datetime, os, uuid, logging
+
+# Module for reading from .env files
+import dotenv
+
+# OPDS feed constructor
+import opds
+
+# Modules for creating and hosting the webapp
 from flask import Flask, Response, send_file
 from waitress import serve
-from tomllib import load
-import opdsfeedgen, datetime, os, uuid
 
-# Loads config file and creates OPDSCatalog object
-config = load(open('opds.toml', 'rb'))
-opds_catalog = opdsfeedgen.OPDSCatalog()
+# Create OPDSCatalog object from local content directory
+library_path = './content'
+opds_catalog = opds.OPDSCatalog(library_path)
 
+# Create flask application object
 app = Flask(__name__)
 
 # Route for root directory
@@ -59,6 +68,13 @@ def show_series(path):
         return send_file(file_path, mimetype='application/epub+zip')
 
 if __name__ == '__main__':
+    # Enable http logging for web server
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s %(levelname)s %(name)s %(message)s'
+    )
+
+    # Launch flask app as waitress server
     serve(
         app,
         host='0.0.0.0',

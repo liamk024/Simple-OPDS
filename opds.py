@@ -1,16 +1,15 @@
 import uuid
-from tomllib import load
 from pathlib import Path
 from datetime import datetime, timezone
 
-config = load(open('opds.toml', 'rb'))
-library_root = './content'
-
 class OPDSCatalog():
     # Declare lookup table for files and folders
-    def __init__(self):
+    def __init__(self, library_path):
+        self.library_path = library_path
+
+        # Begin generating lookup table
         self.lookup_table = {}
-        self.crawl(library_root)
+        self.crawl(self.library_path)
     
     # Rebuilds lookup table from library root
     def crawl(self, path):
@@ -36,6 +35,8 @@ class OPDSCatalog():
 
                     # Register in lookup table
                     self.lookup_table[series_id] = series_properties
+
+                # If the folder does not contain files, search it for folders
                 else:
                     # Iterate on child folders
                     self.crawl(item)
@@ -91,7 +92,7 @@ class OPDSCatalog():
         if url_path[0] == 'content':
             url_path = url_path[1:]
 
-        current_path = Path(library_root)
+        current_path = Path(self.library_path)
 
         for slug in url_path:
             # Build a lookup table for current folder

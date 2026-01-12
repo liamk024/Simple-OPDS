@@ -2,4 +2,5 @@
 __pycache__/
 test.py
 actual_content/
+content/
 .env
