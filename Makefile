@@ -6,4 +6,8 @@ up run start:
 build:
 	docker compose up --build --no-cache -d
 
-.PHONY up run start build
+# Rebuilds and runs application without detaching
+test:
+	docker compose up --build --no-cache
+
+.PHONY up run start build test
